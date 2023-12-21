@@ -9,6 +9,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <regex>
 using namespace std;
 
 int main()
@@ -16,21 +17,77 @@ int main()
     stringstream ss;
     stringstream str_strm;
     string text;
-    ifstream fin("sample2.txt");
-    //int sum = 0;
-    //int tot, i, j=0;
+    ifstream fin("input.txt");
+    long sum = 0;
+    int i, j=0;
+    long tot;
+    size_t index;
     while(getline(fin, text)) {
-        text.replace(text.find("one"), 3, "1");
-        text.replace(text.find("two"), 3, "2");
-        text.replace(text.find("three"),5, "3");
-        text.replace(text.find("four"), 4, "4");
-        text.replace(text.find("five"), 4, "5");
-        text.replace(text.find("six"), 3, "6");
-        text.replace(text.find("seven"), 5, "7");
-        text.replace(text.find("eight"), 5, "8");
-        text.replace(text.find("nine"), 4, "9");
-        cout << text << endl;
-        /*int num[100];
+        while(true) {
+            index = text.find("nine");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 4, "n9e");
+        }
+        while(true) {
+            index = text.find("two");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 3, "t2o");
+        }
+        while(true) {
+            index = text.find("one");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 3, "o1e");
+        }
+        while(true) {
+            index = text.find("eight");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 5, "e8t");
+        }
+        while(true) {
+            index = text.find("seven");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 5, "s7n");
+        }
+        while(true) {
+            index = text.find("six");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 3, "s6x");
+        }
+        while(true) {
+            index = text.find("five");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 4, "f5e");
+        }
+        while(true) {
+            index = text.find("four");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 4, "f4r");
+        }
+        while(true) {
+            index = text.find("three");
+            if (index == std::string::npos) {
+                break;
+            }
+            text.replace(index, 5, "t3e");
+        }
+        //cout << text << endl;
+        int num[100];
         tot = text.length();
         for(i=0; i<tot; i++)
         {
@@ -43,11 +100,12 @@ int main()
         }
         char str[100];
         sprintf(str, "%d%d", num[0], num[j - 1]);
-        int n = strtol(str, NULL, 10);
+        long n = strtol(str, NULL, 10);
+        //cout << n << endl;
         sum = sum + n;
-        j = 0;*/
+        j = 0;
     }
-    //cout << sum << endl;
+    cout << sum << endl;
     fin.close();
     return 0;
 }
