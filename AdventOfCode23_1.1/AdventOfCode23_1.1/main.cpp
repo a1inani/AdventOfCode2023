@@ -15,7 +15,7 @@ int main() {
     stringstream ss;
     stringstream str_strm;
     string text;
-    ifstream fin("sample1.txt");
+    ifstream fin("input.txt");
     long sum = 0;
     int i, j=0;
     long tot;
